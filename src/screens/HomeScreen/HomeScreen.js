@@ -1,11 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View ,StyleSheet, ScrollView} from 'react-native';
+import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View ,StyleSheet, ScrollView , StatusBar, ImageBackground} from 'react-native';
 import { CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import styles from './styles';
+import benchpress from '../../../assets/benchpress.png';
+import cycling from '../../../assets/cycling.png';
+import dumbbells from '../../../assets/dumbbells.png';
+import supportpress from '../../../assets/supportpress.png';
+import warmup from '../../../assets/warmup.png';
 import { firebase } from '../../firebase/config';
 import {Card, Button , Title ,Paragraph } from 'react-native-paper';
+import { Assets } from '@react-navigation/stack';
+
 
 export default function HomeScreen(props) {
+  
 
     const [entityText, setEntityText] = useState('')
     const [entities, setEntities] = useState([])
@@ -33,25 +41,7 @@ export default function HomeScreen(props) {
             )
     }, [])
 
-    const CreateCard = () => {
-      
-        return(
-             
-            <Card style={Styles.container}>
-            <Card.Content>
-                <Title>Geeks For Geeks</Title>
-            </Card.Content>
-            <Card.Cover source={{ uri: 'https://media.geeksforgeeks.org/wp-content/uploads/20220217151648/download3-200x200.png' }} />
-           <Card.Content>
-            <Paragraph>A Computer Science portal for </Paragraph>
-            </Card.Content>
-            <Card.Actions>
-              <Button>Add To Favourites</Button>
-            </Card.Actions>
-          </Card>
-             
-        )
-    }
+
 
     const onAddButtonPress = () => {
         if (entityText && entityText.length > 0) {
@@ -83,17 +73,22 @@ export default function HomeScreen(props) {
         )
     }
 
-    return (<ScrollView>
- 
-        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
-            title="Workout 1"
+    return (<ScrollView  style={{ paddingVertical: 10 , backgroundColor: '#dcedc8'}}>
+     
+      <View style={styles.buttonContainer}>
+<Button>Log out</Button>
+</View>
+      <View style={{ padding: 20 }}>
+        <Card style={{  padding: 20 ,elevation: 5,
+ shadowColor: "#000", margin:20, backgroundColor: '#009688', }}>
+          <CardImage style={{  padding: 5 }}
+            source={warmup}
+            title="Workout 1" 
           />
           <CardTitle
-            subtitle="Number 1"
+            subtitle="Abdomen"
           />
-          <CardContent text="Clifton, Western Cape" />
+          <CardContent text="Warm up" />
           <CardAction 
             separator={true} 
             inColumn={false}>
@@ -104,21 +99,22 @@ export default function HomeScreen(props) {
             />
             <CardButton
               onPress={() => {}}
-              title="Explore"
+              title="Start Workout"
               color="#FEB557"
             />
           </CardAction>
         </Card>
 
-        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
+        <Card style={{  padding: 20 ,elevation: 5,
+ shadowColor: "#000", margin:20, backgroundColor: '#009688', }}>
+          <CardImage style={{  padding: 5 }}
+            source={cycling} 
             title="Workout 2"
           />
           <CardTitle
-            subtitle="Workout 2"
+            subtitle="Full Body workout"
           />
-          <CardContent text="Clifton, Western Cape" />
+          <CardContent text="Cycling" />
           <CardAction 
             separator={true} 
             inColumn={false}>
@@ -129,21 +125,22 @@ export default function HomeScreen(props) {
             />
             <CardButton
               onPress={() => {}}
-              title="Explore"
+              title="Start Workout"
               color="#FEB557"
             />
           </CardAction>
         </Card>
 
-        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
+        <Card style={{  padding: 20 ,elevation: 5,
+ shadowColor: "#000", margin:20 ,backgroundColor: '#009688',}}>
+          <CardImage style={{  padding: 5 }}
+            source={dumbbells} 
             title="Workout 3"
           />
           <CardTitle
-            subtitle="Workout 3"
+            subtitle="Dumb Bells"
           />
-          <CardContent text="Clifton, Western Cape" />
+          <CardContent text="Dumb Bells" />
           <CardAction 
             separator={true} 
             inColumn={false}>
@@ -154,21 +151,22 @@ export default function HomeScreen(props) {
             />
             <CardButton
               onPress={() => {}}
-              title="Explore"
+              title="Start Workout"
               color="#FEB557"
             />
           </CardAction>
         </Card>
 
-        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
+        <Card style={{  padding: 20 ,elevation: 5,
+ shadowColor: "#000", margin:20 ,backgroundColor: '#009688',}}>
+          <CardImage style={{  padding: 5 }} 
+            source={supportpress} 
             title="Workout 4"
           />
           <CardTitle
-            subtitle="Workout 4"
+            subtitle="Support Press"
           />
-          <CardContent text="Clifton, Western Cape" />
+          <CardContent text="Support Press" />
           <CardAction 
             separator={true} 
             inColumn={false}>
@@ -179,21 +177,22 @@ export default function HomeScreen(props) {
             />
             <CardButton
               onPress={() => {}}
-              title="Explore"
+              title="Start Workout"
               color="#FEB557"
             />
           </CardAction>
         </Card>
 
-        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
+        <Card style={{  padding: 20 ,elevation: 5,
+ shadowColor: "#000", margin:20, backgroundColor: '#009688', }}>
+          <CardImage style={{  padding: 5 }} 
+            source={cycling}
             title="Workout 5"
           />
           <CardTitle
-            subtitle="Workout 5"
+            subtitle="Cycling"
           />
-          <CardContent text="Clifton, Western Cape" />
+          <CardContent text="Cycling" />
           <CardAction 
             separator={true} 
             inColumn={false}>
@@ -204,51 +203,23 @@ export default function HomeScreen(props) {
             />
             <CardButton
               onPress={() => {}}
-              title="Explore"
+              title="Start Workout"
               color="#FEB557"
             />
           </CardAction>
-        </Card>
-
-        <Card>
-          <CardImage 
-            source={{uri: 'http://bit.ly/2GfzooV'}} 
-            title="Workout 6"
-          />
-          <CardTitle
-            subtitle="Workout 6"
-          />
-          <CardContent text="Clifton, Western Cape" />
-          <CardAction 
-            separator={true} 
-            inColumn={false}>
-            <CardButton
-              onPress={() => {}}
-              title="Share"
-              color="#FEB557"
-            />
-            <CardButton
-              onPress={() => {}}
-              title="Explore"
-              color="#FEB557"
-            />
-          </CardAction>
-        </Card>
-       
+        </Card>      
+        </View> 
       </ScrollView>
       
     )
 }
 
 const Styles = StyleSheet.create({
-   /* container :{
-        alignContent:'center',
-        margin:37
-    } */
-
     container: {
         flex: 1,
         paddingTop: StatusBar.currentHeight,
+        margin:30,
+      
       },
       scrollView: {
         backgroundColor: 'pink',
@@ -256,5 +227,43 @@ const Styles = StyleSheet.create({
       },
       text: {
         fontSize: 42,
-      }
+      },
+
+      tinyLogo: {
+    width: 100,
+    height: 50,
+  },
+
+  addButton: {
+    position: 'relative',
+    zIndex: 11,
+    left: 0,
+    top: 10,
+    backgroundColor: '#00ccff',
+    width: 70,
+    height: 70,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 8
+},
+
+addButtonText: {
+    color: '#fff',
+    fontSize: 60
+},
+
+buttonContainer: {
+  margin: 20
+  },
+
+  footerView: {
+    flex: 1,
+    alignItems: "center",
+    marginTop: 20
+},
+footerText: {
+    fontSize: 16,
+    color: '#2e2e2d'
+},
+      
 })
