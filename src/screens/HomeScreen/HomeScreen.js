@@ -1,7 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import React, { useEffect, useState } from 'react';
+import { FlatList, Keyboard, Text, TextInput, TouchableOpacity, View ,StyleSheet, ScrollView} from 'react-native';
+import { CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import styles from './styles';
-import { firebase } from '../../firebase/config'
+import { firebase } from '../../firebase/config';
+import {Card, Button , Title ,Paragraph } from 'react-native-paper';
 
 export default function HomeScreen(props) {
 
@@ -30,6 +32,26 @@ export default function HomeScreen(props) {
                 }
             )
     }, [])
+
+    const CreateCard = () => {
+      
+        return(
+             
+            <Card style={Styles.container}>
+            <Card.Content>
+                <Title>Geeks For Geeks</Title>
+            </Card.Content>
+            <Card.Cover source={{ uri: 'https://media.geeksforgeeks.org/wp-content/uploads/20220217151648/download3-200x200.png' }} />
+           <Card.Content>
+            <Paragraph>A Computer Science portal for </Paragraph>
+            </Card.Content>
+            <Card.Actions>
+              <Button>Add To Favourites</Button>
+            </Card.Actions>
+          </Card>
+             
+        )
+    }
 
     const onAddButtonPress = () => {
         if (entityText && entityText.length > 0) {
@@ -61,32 +83,178 @@ export default function HomeScreen(props) {
         )
     }
 
-    return (
-        <View style={styles.container}>
-            <View style={styles.formContainer}>
-                <TextInput
-                    style={styles.input}
-                    placeholder='Add new entity'
-                    placeholderTextColor="#aaaaaa"
-                    onChangeText={(text) => setEntityText(text)}
-                    value={entityText}
-                    underlineColorAndroid="transparent"
-                    autoCapitalize="none"
-                />
-                <TouchableOpacity style={styles.button} onPress={onAddButtonPress}>
-                    <Text style={styles.buttonText}>Add</Text>
-                </TouchableOpacity>
-            </View>
-            { entities && (
-                <View style={styles.listContainer}>
-                    <FlatList
-                        data={entities}
-                        renderItem={renderEntity}
-                        keyExtractor={(item) => item.id}
-                        removeClippedSubviews={true}
-                    />
-                </View>
-            )}
-        </View>
+    return (<ScrollView>
+ 
+        <Card>
+          <CardImage 
+            source={{uri: 'http://bit.ly/2GfzooV'}} 
+            title="Workout 1"
+          />
+          <CardTitle
+            subtitle="Number 1"
+          />
+          <CardContent text="Clifton, Western Cape" />
+          <CardAction 
+            separator={true} 
+            inColumn={false}>
+            <CardButton
+              onPress={() => {}}
+              title="Share"
+              color="#FEB557"
+            />
+            <CardButton
+              onPress={() => {}}
+              title="Explore"
+              color="#FEB557"
+            />
+          </CardAction>
+        </Card>
+
+        <Card>
+          <CardImage 
+            source={{uri: 'http://bit.ly/2GfzooV'}} 
+            title="Workout 2"
+          />
+          <CardTitle
+            subtitle="Workout 2"
+          />
+          <CardContent text="Clifton, Western Cape" />
+          <CardAction 
+            separator={true} 
+            inColumn={false}>
+            <CardButton
+              onPress={() => {}}
+              title="Share"
+              color="#FEB557"
+            />
+            <CardButton
+              onPress={() => {}}
+              title="Explore"
+              color="#FEB557"
+            />
+          </CardAction>
+        </Card>
+
+        <Card>
+          <CardImage 
+            source={{uri: 'http://bit.ly/2GfzooV'}} 
+            title="Workout 3"
+          />
+          <CardTitle
+            subtitle="Workout 3"
+          />
+          <CardContent text="Clifton, Western Cape" />
+          <CardAction 
+            separator={true} 
+            inColumn={false}>
+            <CardButton
+              onPress={() => {}}
+              title="Share"
+              color="#FEB557"
+            />
+            <CardButton
+              onPress={() => {}}
+              title="Explore"
+              color="#FEB557"
+            />
+          </CardAction>
+        </Card>
+
+        <Card>
+          <CardImage 
+            source={{uri: 'http://bit.ly/2GfzooV'}} 
+            title="Workout 4"
+          />
+          <CardTitle
+            subtitle="Workout 4"
+          />
+          <CardContent text="Clifton, Western Cape" />
+          <CardAction 
+            separator={true} 
+            inColumn={false}>
+            <CardButton
+              onPress={() => {}}
+              title="Share"
+              color="#FEB557"
+            />
+            <CardButton
+              onPress={() => {}}
+              title="Explore"
+              color="#FEB557"
+            />
+          </CardAction>
+        </Card>
+
+        <Card>
+          <CardImage 
+            source={{uri: 'http://bit.ly/2GfzooV'}} 
+            title="Workout 5"
+          />
+          <CardTitle
+            subtitle="Workout 5"
+          />
+          <CardContent text="Clifton, Western Cape" />
+          <CardAction 
+            separator={true} 
+            inColumn={false}>
+            <CardButton
+              onPress={() => {}}
+              title="Share"
+              color="#FEB557"
+            />
+            <CardButton
+              onPress={() => {}}
+              title="Explore"
+              color="#FEB557"
+            />
+          </CardAction>
+        </Card>
+
+        <Card>
+          <CardImage 
+            source={{uri: 'http://bit.ly/2GfzooV'}} 
+            title="Workout 6"
+          />
+          <CardTitle
+            subtitle="Workout 6"
+          />
+          <CardContent text="Clifton, Western Cape" />
+          <CardAction 
+            separator={true} 
+            inColumn={false}>
+            <CardButton
+              onPress={() => {}}
+              title="Share"
+              color="#FEB557"
+            />
+            <CardButton
+              onPress={() => {}}
+              title="Explore"
+              color="#FEB557"
+            />
+          </CardAction>
+        </Card>
+       
+      </ScrollView>
+      
     )
 }
+
+const Styles = StyleSheet.create({
+   /* container :{
+        alignContent:'center',
+        margin:37
+    } */
+
+    container: {
+        flex: 1,
+        paddingTop: StatusBar.currentHeight,
+      },
+      scrollView: {
+        backgroundColor: 'pink',
+        marginHorizontal: 20,
+      },
+      text: {
+        fontSize: 42,
+      }
+})
