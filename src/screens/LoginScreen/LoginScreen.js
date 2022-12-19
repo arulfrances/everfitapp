@@ -29,6 +29,7 @@ export default function LoginScreen({navigation}) {
                         }
                         const user = firestoreDocument.data()
                         navigation.navigate('HomeScreen', {user: user})
+                        JSON.stringify(currentUser);
                     })
                     .catch(error => {
                         alert(error)
@@ -45,7 +46,7 @@ export default function LoginScreen({navigation}) {
                 style={{ flex: 1, width: '100%' }}
                 keyboardShouldPersistTaps="always">
                 <Image
-                    style={styles.logo}
+                    style={{width: '50%', height: '100%', resizeMode: 'contain',   alignSelf: 'center',}}
                     source={require('../../../assets/splash.png')}
                 />
                 <TextInput

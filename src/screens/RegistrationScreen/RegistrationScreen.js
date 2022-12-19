@@ -35,7 +35,7 @@ export default function RegistrationScreen({navigation}) {
                     .doc(uid)
                     .set(data)
                     .then(() => {
-                        navigation.navigate('ExercisesScreen', {user: data})
+                        navigation.navigate('HomeScreen', {user: data})
                     })
                     .catch((error) => {
                         alert(error)
@@ -53,8 +53,10 @@ export default function RegistrationScreen({navigation}) {
                 keyboardShouldPersistTaps="always">
                 <Image
                     style={styles.logo}
-                    source={require('../../../assets/icon.png')}
+                    source={require('../../../assets/splash.png')}
                 />
+
+                
                 <TextInput
                     style={styles.input}
                     placeholder='Full Name'

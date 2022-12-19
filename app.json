@@ -13,10 +13,7 @@
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff",
-      "justify": "center",
-      "width": 50,
-      "height": 50
+      "backgroundColor": "#ffffff"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -25,8 +22,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.faithlabs.fitness"
     },
-    "description": ""
+    "description": "",
+    "extra": {
+      "eas": {
+        "projectId": "81b1fdca-fdae-4171-b25e-f97ce3e11951"
+      }
+    },
+    "android": {
+      "package": "com.faithlabs.fitness"
+    }
   }
 }

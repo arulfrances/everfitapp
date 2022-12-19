@@ -52,5 +52,11 @@ export default StyleSheet.create({
     entityText: {
         fontSize: 20,
         color: '#333333'
-    }
+    },
+    logo: {
+        flex: 1,
+        aspectRatio: 1.5, 
+        resizeMode: 'contain',
+    
+      }
 })
